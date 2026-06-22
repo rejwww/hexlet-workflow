@@ -2,6 +2,8 @@
 name: show-directory
 # on – определяет события, которые запускают воркфлоу
 on: push
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 jobs:
   # build – произвольно выбранное имя задания
   # их может быть больше одного
