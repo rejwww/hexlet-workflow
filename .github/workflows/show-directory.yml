@@ -1,19 +1,33 @@
-# file: .github/workflows/show-directory.yml
+# # file: .github/workflows/show-directory.yml
+# name: show-directory
+# # on – определяет события, которые запускают воркфлоу
+# on: push
+# jobs:
+#   # build – произвольно выбранное имя задания
+#   # их может быть больше одного
+#   build:
+#     # операционная система для работы воркфлоу
+#     runs-on: ubuntu-latest
+#     env: 
+#         FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+#     steps: # список шагов, которые надо выполнить
+#       # экшен — выполняет какую-то задачу
+#       # checkout — клонирует репозиторий
+#       - uses: actions/checkout@v4
+#       # run – произвольная bash-команда
+#       # make say-hello выведет Hello, World!
+#       - run: make say-hello
+
+
 name: show-directory
-# on – определяет события, которые запускают воркфлоу
 on: push
+
 jobs:
-  # build – произвольно выбранное имя задания
-  # их может быть больше одного
   build:
-    # операционная система для работы воркфлоу
     runs-on: ubuntu-latest
-    env: 
-        FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-    steps: # список шагов, которые надо выполнить
-      # экшен — выполняет какую-то задачу
-      # checkout — клонирует репозиторий
-      - uses: actions/checkout@v6
-      # run – произвольная bash-команда
-      # make say-hello выведет Hello, World!
-      - run: make say-hello
+    steps:
+      # Обновляем до v5 — эта версия официально поддерживает Node.js 24
+      - uses: actions/checkout@v5
+      
+      # Убедитесь, что в вашем репозитории есть Makefile с целью say-hello
+      - run: make say-hello 
