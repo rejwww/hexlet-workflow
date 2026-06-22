@@ -9,11 +9,11 @@ jobs:
     # операционная система для работы воркфлоу
     runs-on: ubuntu-latest
     env: 
-        ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+        FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps: # список шагов, которые надо выполнить
       # экшен — выполняет какую-то задачу
       # checkout — клонирует репозиторий
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@main
       # run – произвольная bash-команда
       # make say-hello выведет Hello, World!
       - run: make say-hello
